@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Waste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>➕ Add Waste</h1>
+        <form action="/submit" method="POST">
+            <label for="type">Type of Waste:</label>
+            <select name="type" required>
+                <option value="Plastic">Plastic</option>
+                <option value="Organic">Organic</option>
+                <option value="Metal">Metal</option>
+                <option value="Glass">Glass</option>
+                <option value="Electronic">Electronic</option>
+                <option value="Medical">Medical</option>
+                <option value="Paper">Paper</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" name="weight" step="0.01" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <button onclick="location.href='/'">⬅ Back</button>
+    </div>
+</body>
+</html>

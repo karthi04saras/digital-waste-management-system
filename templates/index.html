@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Waste Tracker - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function deleteRow(id) {
+            fetch(`/delete/${id}`, { method: 'POST' }).then(() => location.reload());
+        }
+
+        function refreshAll() {
+            fetch(`/refresh`, { method: 'POST' }).then(() => location.reload());
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>♻️ Waste Records</h1>
+        <button onclick="location.href='/add'">➕ Add Waste</button>
+        <button onclick="refreshAll()">🔄 Refresh All</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Weight (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in waste_data %}
+                <tr ondblclick="deleteRow({{ row[0] }})">
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
