@@ -2,7 +2,7 @@
 
 A lightweight web application built using **Python Flask**, **HTML/CSS**, and **SQLite** to digitally record and monitor the **type and quantity of waste** generated.
 
-> 🟢 This project is designed for **recording waste data only**, not for complaint handling.
+> 🟢 This project is designed for **recording waste datas**.
 
 ---
 
